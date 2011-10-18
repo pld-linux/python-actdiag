@@ -9,7 +9,7 @@
 Summary:	actdiag generate activity-diagram image file from spec-text file
 Name:		python-%module
 Version:	0.1.9
-Release:	0.2
+Release:	1
 License:	Apache v2.0
 Group:		Development/Languages
 URL:		http://blockdiag.com/en/actdiag/index.html
@@ -54,6 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{module}
 %dir %{py_sitescriptdir}/%{module}
+%{py_sitescriptdir}/%{module}_sphinxhelper.py[co]
+%{py_sitescriptdir}/sphinxcontrib_%{module}.py[co]
 %{py_sitescriptdir}/%{module}/*.py[co]
 %if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{module}-%{version}-*.egg-info
