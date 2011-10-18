@@ -37,8 +37,8 @@ rm -rf $RPM_BUILD_ROOT
 	--root $RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}/tests
-%{__rm} $RPM_BUILD_ROOT/%{py_sitescriptdir}/%{module}_sphinxhelper.py[co]
-%{__rm} $RPM_BUILD_ROOT/%{py_sitescriptdir}/sphinxcontrib_%{module}.py[co]
+%{__rm} $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}_sphinxhelper.py[co]
+%{__rm} $RPM_BUILD_ROOT%{py_sitescriptdir}/sphinxcontrib_%{module}.py[co]
 
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 cp -p %{module}.1 $RPM_BUILD_ROOT%{_mandir}/man1
