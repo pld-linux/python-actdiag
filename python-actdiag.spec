@@ -1,10 +1,3 @@
-# TODO
-# - unpackaged files:
-#   /usr/share/python2.7/site-packages/actdiag_sphinxhelper.pyc
-#   /usr/share/python2.7/site-packages/actdiag_sphinxhelper.pyo
-#   /usr/share/python2.7/site-packages/sphinxcontrib_actdiag.pyc
-#   /usr/share/python2.7/site-packages/sphinxcontrib_actdiag.pyo
-
 %define 	module	actdiag
 Summary:	actdiag generate activity-diagram image file from spec-text file
 Name:		python-%{module}
@@ -47,6 +40,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %py_postclean
 
+%{__rm} $RPM_BUILD_ROOT/%{py_sitescriptdir}/%{module}_sphinxhelper.py[co]
+%{__rm} $RPM_BUILD_ROOT/%{py_sitescriptdir}/sphinxcontrib_%{module}.py[co]
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -54,8 +50,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{module}
 %dir %{py_sitescriptdir}/%{module}
-%{py_sitescriptdir}/%{module}_sphinxhelper.py[co]
-%{py_sitescriptdir}/sphinxcontrib_%{module}.py[co]
 %{py_sitescriptdir}/%{module}/*.py[co]
 %if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{module}-%{version}-*.egg-info
