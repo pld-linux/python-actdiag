@@ -1,3 +1,10 @@
+# TODO
+# - unpackaged files:
+#   /usr/share/python2.7/site-packages/actdiag_sphinxhelper.pyc
+#   /usr/share/python2.7/site-packages/actdiag_sphinxhelper.pyo
+#   /usr/share/python2.7/site-packages/sphinxcontrib_actdiag.pyc
+#   /usr/share/python2.7/site-packages/sphinxcontrib_actdiag.pyo
+
 %define 	module	actdiag
 Summary:	actdiag generate activity-diagram image file from spec-text file
 Name:		python-%module
@@ -8,7 +15,6 @@ Group:		Development/Languages
 URL:		http://blockdiag.com/en/actdiag/index.html
 Source0:	http://pypi.python.org/packages/source/a/%{module}/%{module}-%{version}.tar.gz
 # Source0-md5:	c14ad2a72b0293be3b5613780151e591
-BuildRequires:	python-funcparserlib >= 0.3.4
 BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	sed >= 4.0
 Requires:	python-blockdiag >= 0.8.1
@@ -37,13 +43,18 @@ rm -rf $RPM_BUILD_ROOT
 	--skip-build \
 	--root $RPM_BUILD_ROOT
 
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}/tests
+
+%py_postclean
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{module}
-%{py_sitescriptdir}/%{module}
+%dir %{py_sitescriptdir}/%{module}
+%{py_sitescriptdir}/%{module}/*.py[co]
 %if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{module}-%{version}-*.egg-info
 %endif
