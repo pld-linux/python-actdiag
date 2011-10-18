@@ -7,7 +7,7 @@
 
 %define 	module	actdiag
 Summary:	actdiag generate activity-diagram image file from spec-text file
-Name:		python-%module
+Name:		python-%{module}
 Version:	0.1.9
 Release:	1
 License:	Apache v2.0
