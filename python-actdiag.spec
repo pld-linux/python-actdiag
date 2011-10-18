@@ -2,17 +2,16 @@
 Summary:	actdiag generate activity-diagram image file from spec-text file
 Name:		python-%module
 Version:	0.1.9
-Release:	0.1
+Release:	0.2
 License:	Apache v2.0
 Group:		Development/Languages
 URL:		http://blockdiag.com/en/actdiag/index.html
 Source0:	http://pypi.python.org/packages/source/a/%{module}/%{module}-%{version}.tar.gz
 # Source0-md5:	c14ad2a72b0293be3b5613780151e591
-#BuildRequires:	python < 3.0
 BuildRequires:	python-funcparserlib >= 0.3.4
 BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	sed >= 4.0
-#Requires:	python-django
+Requires:	python-blockdiag >= 0.8.1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,11 +36,6 @@ rm -rf $RPM_BUILD_ROOT
 	--optimize=2 \
 	--skip-build \
 	--root $RPM_BUILD_ROOT
-
-%py_postclean
-
-%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}/tests
-%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/tests
 
 %clean
 rm -rf $RPM_BUILD_ROOT
