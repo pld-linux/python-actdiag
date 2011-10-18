@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{module}
-%attr(644,root,root) %{_mandir}/man1/%{module}.1*
+%{_mandir}/man1/%{module}.1*
 %dir %{py_sitescriptdir}/%{module}
 %{py_sitescriptdir}/%{module}/*.py[co]
 %if "%{py_ver}" > "2.4"
