@@ -1,16 +1,17 @@
 %define 	module	actdiag
 Summary:	actdiag generate activity-diagram image file from spec-text file
 Name:		python-%{module}
-Version:	0.1.9
+Version:	0.3.0
 Release:	1
 License:	Apache v2.0
 Group:		Development/Languages
 URL:		http://blockdiag.com/en/actdiag/index.html
 Source0:	http://pypi.python.org/packages/source/a/%{module}/%{module}-%{version}.tar.gz
-# Source0-md5:	c14ad2a72b0293be3b5613780151e591
+# Source0-md5:	8817f19831eaedcedf40b24eb5e16227
+BuildRequires:	python-funcparserlib >= 0.3.4
 BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	sed >= 4.0
-Requires:	python-blockdiag >= 0.8.1
+Requires:	python-blockdiag >= 1.1.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,7 +39,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}/tests
 %{__rm} $RPM_BUILD_ROOT%{py_sitescriptdir}/%{module}_sphinxhelper.py[co]
-%{__rm} $RPM_BUILD_ROOT%{py_sitescriptdir}/sphinxcontrib_%{module}.py[co]
 
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 cp -p %{module}.1 $RPM_BUILD_ROOT%{_mandir}/man1
@@ -54,6 +54,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/%{module}.1*
 %dir %{py_sitescriptdir}/%{module}
 %{py_sitescriptdir}/%{module}/*.py[co]
+%dir %{py_sitescriptdir}/%{module}/utils
+%{py_sitescriptdir}/%{module}/utils/*.py[co]
+%dir %{py_sitescriptdir}/%{module}/utils/rst
+%{py_sitescriptdir}/%{module}/utils/rst/*.py[co]
 %if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{module}-%{version}-*.egg-info
 %endif
