@@ -8,7 +8,7 @@ Group:		Development/Languages
 URL:		http://blockdiag.com/en/actdiag/index.html
 Source0:	http://pypi.python.org/packages/source/a/%{module}/%{module}-%{version}.tar.gz
 # Source0-md5:	9fe115a937539c43cf9d16a5d79e20d6
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	sed >= 4.0
 Requires:	python-blockdiag >= 1.1.2
 Requires:	python-funcparserlib >= 0.3.4
