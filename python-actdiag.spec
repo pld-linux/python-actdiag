@@ -2,7 +2,7 @@
 Summary:	actdiag generate activity-diagram image file from spec-text file
 Name:		python-%{module}
 Version:	0.3.3
-Release:	2
+Release:	3
 License:	Apache v2.0
 Group:		Development/Languages
 URL:		http://blockdiag.com/en/actdiag/index.html
